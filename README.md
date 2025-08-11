@@ -185,20 +185,34 @@ JWT_SECRET=your_jwt_secret
 ## 📸 Screenshots
 <img width="765" height="603" alt="n4" src="https://github.com/user-attachments/assets/1a0021c0-ec73-4a5a-9a99-3a4b78da2adf" />
 
-Figure 1: The registration page where new users can create an account by providing their details.
+
+**Figure 1: The registration page where new users can create an account by providing their details**
+
+
 <img width="768" height="609" alt="n3" src="https://github.com/user-attachments/assets/a8279db7-722d-4bb0-aeea-8c22821a92ee" />
 
-Figure 2: Login screen allowing existing users to securely access their accounts.
+
+**Figure 2: Login screen allowing existing users to securely access their accounts**
+
+
 <img width="1365" height="612" alt="n1" src="https://github.com/user-attachments/assets/a39a13b7-e1b2-4b58-bc6e-6d3bd3cc32c1" />
 
-Figure 3: Dashboard interface where users can add new notes including title, content, and related links.
+
+**Figure 3: Dashboard interface where users can add new notes including title, content, and related links**
+
+
 <img width="1365" height="611" alt="n5" src="https://github.com/user-attachments/assets/bfc5f4df-a43c-480b-9e77-9f2c55e26f3a" />
 <img width="1055" height="475" alt="n7" src="https://github.com/user-attachments/assets/bd8f89a2-83f0-481a-946f-24db8bc841af" />
 
-Figure 4: Overview of the list of notes created by the user, showing note titles and previews.
+
+**Figure 4: Overview of the list of notes created by the user, showing note titles and previews**
+
+
 <img width="1365" height="455" alt="n6" src="https://github.com/user-attachments/assets/6e0b6c4d-0c91-4d5f-b9c6-157bca8899f4" />
 
-Figure 5: Search functionality allowing users to filter notes by keywords to quickly find relevant content.
+
+**Figure 5: Search functionality allowing users to filter notes by keywords to quickly find relevant content**
+
 
 ---
 
