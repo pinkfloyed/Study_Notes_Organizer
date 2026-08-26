@@ -1,7 +1,6 @@
 # 📚 Study Notes Organizer
 
-A **full‑stack** web application built with **Vue.js, Node.js, and MySQL** that helps users easily create, organize, and manage their study notes.  
-Features **secure authentication, CRUD note management, search, filtering, and a modern UI** built with Tailwind CSS.
+A **full-stack web application** built with **Vue.js, Node.js, Express.js, and MySQL** that helps users easily create, organize, and manage their study notes. The application provides **secure JWT authentication, CRUD note management, search and filtering, category and tag support, and a modern responsive UI** built with Tailwind CSS. The project is fully containerized using **Docker and Docker Compose**, with **database migrations** managed using `db-migrate`.
 
 ---
 
@@ -10,20 +9,42 @@ Features **secure authentication, CRUD note management, search, filtering, and a
 - 🔑 **User Authentication** – Secure registration & login with JWT
 - 📝 **Note Management (CRUD)** – Create, read, update, and delete notes
 - 🔍 **Search & Filter** – Quickly find notes by keywords
-- 📱 **Responsive Design** – Mobile‑friendly with Tailwind CSS
+- 📱 **Responsive Design** – Mobile-friendly interface
 - 🔔 **Toast Notifications** – Modern success & error messages
-- 🎨 **Full‑Screen Gradient Auth Pages** – Eye‑catching login & register screens
+- 🎨 **Full-Screen Gradient Auth Pages** – Modern login and registration screens
 - 🗂 **Category & Tag Support** – Organize notes efficiently
+- 🐳 **Dockerized Application** – Frontend, backend, and MySQL run in containers
+- 🗃️ **Database Migrations** – Version-controlled database schema using `db-migrate`
 
 ---
 
 ## 🛠 Tech Stack
 
-**Frontend:** Vue.js 3, Pinia, Vue Router, Tailwind CSS  
-**Backend:** Node.js, Express.js  
-**Database:** MySQL  
-**Auth:** JWT (JSON Web Tokens)  
-**Others:** Axios, Vue‑Toastification
+### Frontend
+- Vue.js 3
+- Pinia
+- Vue Router
+- Tailwind CSS
+- Axios
+- Vue-Toastification
+
+### Backend
+- Node.js
+- Express.js
+- JWT
+- bcryptjs
+
+### Database
+- MySQL 8.0
+- mysql2
+
+### Database Management
+- db-migrate
+- db-migrate-mysql
+
+### DevOps
+- Docker
+- Docker Compose
 
 ---
 
@@ -32,84 +53,131 @@ Features **secure authentication, CRUD note management, search, filtering, and a
 ```text
 study-notes-organizer/
 │
-├── backend/ # Node.js + Express + MySQL Backend
-│   ├── config/ # Configuration files
-│   │   └── db.js # MySQL database connection
-│   ├── controllers/ # Route controllers / business logic
-│   │   ├── authController.js # User registration & login logic
-│   │   └── notesController.js # CRUD operations for notes
-│   ├── middleware/ # Express middleware
-│   │   └── authMiddleware.js # JWT authentication middleware
-│   ├── routes/ # API route definitions
-│   │   ├── auth.js # Auth routes (login/register)
-│   │   └── notes.js # Notes routes (CRUD/search)
-│   ├── node_modules/ # Backend dependencies
-│   ├── .env # Environment variables
-│   ├── package.json # Backend dependencies & scripts
-│   ├── package-lock.json # Locked dependency versions
-│   └── server.js # Express server entry point
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   └── notesController.js
+│   │
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   │
+│   ├── migrations/
+│   │   ├── 001-create-users.sql
+│   │   └── 002-create-notes.sql
+│   │
+│   ├── routes/
+│   │   ├── auth.js
+│   │   └── notes.js
+│   │
+│   ├── .env
+│   ├── Dockerfile
+│   ├── database.json
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
 │
-├── frontend/ # Vue.js Frontend
-│   ├── public/ # Static public files
-│   ├── src/ # Source code
-│   │   ├── api/ # API service files
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
 │   │   │   ├── authService.js
 │   │   │   ├── axios.js
 │   │   │   └── notesService.js
-│   │   ├── assets/ # Static assets (images, icons, etc.)
-│   │   ├── components/ # UI components
+│   │   │
+│   │   ├── assets/
+│   │   ├── components/
 │   │   │   ├── LoadingSpinner.vue
 │   │   │   ├── Navbar.vue
 │   │   │   ├── NoteCard.vue
 │   │   │   ├── SearchBar.vue
 │   │   │   └── ToastNotification.vue
-│   │   ├── router/ # Vue Router setup
+│   │   │
+│   │   ├── router/
 │   │   │   └── index.js
-│   │   ├── store/ # Pinia store files
+│   │   │
+│   │   ├── store/
 │   │   │   ├── authStore.js
 │   │   │   └── notesStore.js
-│   │   ├── styles/ # Global styles
+│   │   │
+│   │   ├── styles/
 │   │   │   ├── style.css
 │   │   │   └── tailwind.css
-│   │   ├── utils/ # Helper functions
+│   │   │
+│   │   ├── utils/
 │   │   │   └── formatDate.js
-│   │   ├── views/ # Application views
+│   │   │
+│   │   ├── views/
 │   │   │   ├── Dashboard.vue
 │   │   │   ├── Login.vue
 │   │   │   ├── Register.vue
 │   │   │   └── ViewNote.vue
-│   │   ├── App.vue # Root Vue component
-│   │   └── main.js # Vue entry point
-│   ├── .gitignore
-│   ├── index.html
-│   ├── package.json # Frontend dependencies & scripts
-│   ├── package-lock.json # Locked dependency versions
-│   └── README.md
+│   │   │
+│   │   ├── App.vue
+│   │   └── main.js
+│   │
+│   ├── Dockerfile
+│   ├── package.json
+│   └── package-lock.json
 │
-└── README.md # Project documentation
+├── docker-compose.yml
+├── .gitignore
+└── README.md
 ```
+## 🐳 Docker Setup
+
+The application uses Docker Compose to run the complete application. The following services are included:
+
+Docker Compose :  Frontend : 5173 ────▶ Backend : 5000 ────▶ MySQL : 3306 ◀──── Database Migrations
+### Services
+
+| Service  | Description           |   Port |
+| -------- | --------------------- | -----: |
+| Frontend | Vue.js application    | `5173` |
+| Backend  | Node.js + Express API | `5000` |
+| MySQL    | MySQL database        | `3306` |
+
 
 ## 📦 Installation
+
+### Prerequisites
+
+Make sure you have installed:
+- Docker Desktop
+- Git
+You do not need XAMPP to run this project.
 
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/study-notes-organizer.git
-
-# Navigate to backend & install dependencies
-cd backend
-npm install
-
-# Start backend server
-npm run dev
-
-# Navigate to frontend & install dependencies
-cd ../frontend
-npm install
-
-# Start frontend development server
-npm run dev
+cd Study_Notes_Organizer
 ```
+### Build and start the containers
+```bash
+docker compose up -d --build
+```
+### This starts:
+- Frontend
+- Backend
+- MySQL
 
+### Run database migrations
+After the containers are running:
+```bash
+docker compose exec backend npm run migrate
+```
+This creates the required database tables. The migration system keeps track of which migrations have already been executed.
+
+### Roll back the latest migration
+```bash
+docker compose exec backend npm run migrate:down
+```
+### Create a new migration
+```bash
+docker compose exec backend npx db-migrate create migration-name --sql-file
+```
 ---
 
 ## 🔐 Environment Variables
@@ -124,6 +192,45 @@ DB_PASSWORD=
 DB_NAME=study_notes
 JWT_SECRET=your_jwt_secret
 ```
+## Docker configuration
+
+When running through Docker Compose, the backend receives its database configuration from docker-compose.yml:
+environment:
+```ini
+  PORT: 5000
+  DB_HOST: mysql
+  DB_USER: root
+  DB_PASSWORD: root
+  DB_NAME: study_notes
+  JWT_SECRET: your_jwt_secret
+```
+Inside Docker, the backend connects to MySQL using mysql:3306 because mysql is the Docker Compose service name.
+
+---
+
+## ▶️ Running the Application
+
+Start the application:
+```bash
+docker compose up -d
+```
+
+Run migrations:
+```bash
+docker compose exec backend npm run migrate
+```
+
+The application will be available at:
+- Frontend: http://localhost:5173
+- Backend:  http://localhost:5000
+
+## 🛑 Stop the Application
+
+To stop the containers:
+```bash
+docker compose down
+```
+This stops the containers but preserves the MySQL data stored in the Docker volume.
 
 ---
 
