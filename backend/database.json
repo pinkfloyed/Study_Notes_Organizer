@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "driver": "mysql",
+    "host": "mysql",
+    "user": "root",
+    "password": "root",
+    "database": "study_notes",
+    "multipleStatements": true
+  }
+}
